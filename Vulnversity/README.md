@@ -97,7 +97,7 @@ Ubuntu
 /internal/uploads
 ```
 
-# By uploading our reverseshell with '.php' extension doesn't work so we tried 
+# By uploading our revshell with '.php' extension doesn't work, so we tried 
 ```
 .phtml
 ```
