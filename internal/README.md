@@ -57,13 +57,10 @@ gobuster dir -u http://internal.thm/blog -w /usr/share/wordlists/dirbuster/direc
 ```
 
 ### After some enumeration we find a post showing that the user is admin
-```
 
 
-img 1 
+![img1](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/internal/images/1.png)
 
-
-```
 
 ### And after enumerating more we find the login wp url and the bottom of the page and also we find the login directory on our second gobuster scan
 ```
@@ -183,12 +180,9 @@ admin:my2boys
 nc -lnvp 4444
 ```
 ### And by uploading the php reverse shell on the twenty seventeen themes 404.php page 
-```
 
-img 2
+![img 2](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/internal/images/2.png)
 
-
-```
 ### And by opening the 404.php url 
 ```
 https://10.10.51.186/blog/wp-content/themes/twentyseventeen/404.php
