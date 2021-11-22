@@ -38,9 +38,9 @@ Service detection performed. Please report any incorrect results at https://nmap
 ```
 
 ### We watched the web server and its showing a simple page showing a simple page 
-```
-![img 01]()
-```
+
+![img 01](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Lian_Yu/images/01.png)
+
 
 ### Let's start with directory bruteforcing, we find  
 ```
@@ -48,14 +48,14 @@ Service detection performed. Please report any incorrect results at https://nmap
 ```
 
 ### And here we find another web page 
-```
-![img 02]()
-```
+
+![img 02](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Lian_Yu/images/02.png)
+
 
 ### And by viewing the page source we find something interesting - "vigilante" 
-```
-![img 03]()
-```
+
+![img 03](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Lian_Yu/images/03.png)
+
 
 ### Let's enumerate more by bruteforcing this directory, and we found another directory
 
@@ -66,9 +66,9 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 ### Here we found this page 
 
-```
-![img 04]()
-```
+
+![img 04](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Lian_Yu/images/04.png)
+
 
 ### Here we found another hint ".ticket", it seems like an extension. So by bruteforcing more i found 
 ```
@@ -77,17 +77,15 @@ Service detection performed. Please report any incorrect results at https://nmap
 ```
 
 ### Here we found a password hash 
-```
-![img 05]()
 
-```
+![img 05](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Lian_Yu/images/05.png)
+
 ### So we tried this password with the username - "vigilante" with the password "RTy8yhBQdscX", but it failed 
 
 ### So, we tried to decode this code "RTy8yhBQdscX" by using cyberchef
-```
-![img 06]()
 
-```
+![img 06](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Lian_Yu/images/06.png)
+
 
 ### Here we found a valid password i.e
 ```
@@ -257,9 +255,9 @@ User slade may run the following commands on LianYu:
 
 ### Here we find that we can run pkexec as root
 ### So by using GTFO bins we find a way to get the root access 
-```
-![img 07]()
-```
+
+![img 07](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Lian_Yu/images/07.png)
+
 ### BOOOOOOOOOOMMMMMMMMMMMM!!!!!!!!!!!!!!!!, We got the root access on the machine 
 ### By using the command we got the root access 
 ```
