@@ -81,7 +81,7 @@ http://job.empline.thm/upload/careerportaladd/revshell.php
 ### Here we got the hashes of 3 users admin,george,james 
 ![012.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/012.png)
 
-### We saves these hashes in a file names hash, next we tried crack these hashes using john 
+### We saves these hashes in a file named hash, next we tried crack these hashes using john 
 ![002.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/002.png)
 ## User Flag
 ### Here we find the password for the user george, and we use these creds to log in to the webserver using ssh and we sucessfully logged in to the server
