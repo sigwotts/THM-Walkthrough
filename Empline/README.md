@@ -24,9 +24,8 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 ```
 ### We got two ports open, so we tried accessing the webserver and there is a simple static page with no paramters exploitable
-```
-![004.png]()
-```
+![004.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/004.png)
+
 ### Next we tried bruteforcing directories using gobuster
 ```
 /index.html           (Status: 200) [Size: 14058]
@@ -43,7 +42,7 @@ Found: _domainkey.empline.thm (Status: 400) [Size: 422]
 ```
 
 ### Here we find some interesting subdomains so we added these to out /etc/hosts file, then after navigating to the job.empline.thm, we got this login page
-![005.png]()
+![005.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/005.png)
 
 ## Exploitation
 
@@ -59,33 +58,34 @@ Shellcodes: No Results
 
 ```
 ### So here we mirrored the exploit in our attacker machine and it gives us a unstable shell
-![006.png]()
+![006.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/006.png)
 
 ### So here we see the present working directory and we tried uploading our favourite php-reverse-shell in the current working directory, and we sucessfully managed to upload the reverse-shell on the server
-![007.png]()
-![008.png]()
+![007.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/007.png)
+![008.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/008.png)
 
 ### Now we have to call the shell by visiting the url
 ```
 http://job.empline.thm/upload/careerportaladd/revshell.php
 ```
+## Initial foothold
 ### Here we got the shell
-![009.png]()
+![009.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/009.png)
 
 ### After visiting many directories on the server we find "config.php" in /var/www/opencats directory and in the file we got the credentials of mysql database
-![001.png]()
+![001.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/001.png)
 
 ### After using these creds we are sucessfully managed to enter in the database
-![011.png]()
+![011.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/011.png)
 
 ### Here we got the hashes of 3 users admin,george,james 
-![012.png]()
+![012.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/012.png)
 
 ### We saves these hashes in a file names hash, next we tried crack these hashes using john 
-![002.png]()
+![002.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/002.png)
 ## User Flag
 ### Here we find the password for the user george, and we use these creds to log in to the webserver using ssh and we sucessfully logged in to the server
-![013.png]()
+![013.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/013.png)
 
 ### Here we find the user flag
 ```
@@ -95,7 +95,7 @@ george@empline:~$ cat user.txt
 ## Priv esc
 
 ### We went through many directories but we didn't find anything intersting, then we tried to check the /etc/crontab file, there also we didn't find anthing intersting, then we upload linpeas to the server and the output gives something interesting
-![014.png]()
+![014.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/014.png)
 
 ### So we tried googling it and we find that we can change the ownership of the file using cap_chown+ep using ruby 
 ```
@@ -115,11 +115,11 @@ FileUtils.chown 'george', 'george', '/etc/shadow'
 ```
 
 ### And now lets check the ownership of the /etc/shadow file
-![015.png]()
+![015.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/015.png)
 
 ### Here we can see we own the file now, next we have to change the root password, in our case we copied the hash of the user george and paste that in the root hash, so that the password of george and root will become same
 ### Now we tried the same password we used for user george 
-![016.png]()
+![016.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/016.png)
 
 ## BOOOOOOOOOOMMMMMMMMM!!!!!!!!!!!!!!! We are root and here we got the root flag
-## <3 by sigwotts
+# <3 by sigwotts
