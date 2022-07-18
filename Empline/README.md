@@ -108,13 +108,13 @@ https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilit
 https://apidock.com/ruby/FileUtils/chown
 ```
 
-### We take the help of this article to make our ruby script, the script looks like this 
+### We take the help of above article to make our ruby script, the script looks like this 
 ```
 require 'fileutils'
 FileUtils.chown 'george', 'george', '/etc/shadow'
 ```
 
-### And now lets check the ownership of the /etc/shadow file
+### Now after running the ruby script, now lets check the ownership of the /etc/shadow file
 ![015.png](https://raw.githubusercontent.com/sigwotts/THM-Walkthrough/main/Empline/img/015.png)
 
 ### Here we can see we own the file now, next we have to change the root password, in our case we copied the hash of the user george and paste that in the root hash, so that the password of george and root will become same
